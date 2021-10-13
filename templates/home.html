@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<a href="{% url 'movie_app:add' %}" class=" text-center fab-container  btn btn-primary p-2 m-2"> Add
+  Movie</a>
+
+<div class="container">
+
+  <div class="row">
+    {% for i in movie_list%}
+    <div class="col-md-4">
+      <div class="p-1 mt-2">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{i.img.url}}" alt="{{i.name}}" width="250px" height="250px">
+          <div class="card-body">
+            <h5 class="card-title">{{i.name}}</h5>
+            <p class="card-text text-truncate">{{i.desc}}</p>
+            <a href="{% url 'movie_app:detail' i.id %}" class="btn btn-primary">Go Detail</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+<!--<div class="mt-2 mb-4 p-2 ">-->
+<!--<a href="{% url 'movie_app:add' %}" class="btn btn-primary" type="button">ADD MOVIE</a>-->
+<!--</div>-->
+<!--    {% for i in movie_list%}-->
+<!--<div class="p-2 mt-2 bg-dark text-white" >-->
+<!--<ul class="list-group ">-->
+<!--  <li class="list-group-item">-->
+<!--      <img src="{{i.img.url}}" alt="{{i.name}}" width="150px" height="150px">-->
+<!--<a href="{% url 'movie_app:detail' i.id %}">{{i.name}}({{i.year}})</a><br>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--{% endfor %}-->
+
+{% endblock %}

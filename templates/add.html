@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<form class="container p-3 my-3 bg-dark text-white" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>ADD MOVIE</h2>
+   <div class="form-group">
+    <label>Movie Name</label>
+    <input type="text" class="form-control" name="movie_name" required>
+   </div>
+    <div class="form-group">
+        <label >Movie Description</label>
+        <textarea class="form-control" name="desc" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>Movie Image</label>
+      <input type="file" name="img" class="form-control-file" required>
+  </div>
+
+   <div class="form-group">
+    <label >Movie Year</label>
+    <input type="text" class="form-control" name="year">
+   </div>
+    <input type="submit">
+</form>
+{% endblock %}
